@@ -1,0 +1,11 @@
+*checkpoint*
+*.pyc
+*.csv
+*.txt
+*.wav
+*.opus
+data/*
+*.pkl
+*.zip
+*.jpg
+input/*
