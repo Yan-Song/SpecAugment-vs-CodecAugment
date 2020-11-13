@@ -34,23 +34,27 @@ def feature_dataframe_gen(feature_dir):
 
 
 ori_feature_dataframe = feature_dataframe_gen(feature_dir = 'input/mel_features/Original_features/')
-specAugmented_feature_dataframe = feature_dataframe_gen(feature_dir='input/mel_features/SpecAugmented_features/')
+
+ori_feature_dataframe = ori_feature_dataframe.loc[:, (ori_feature_dataframe==0.0).mean() < .9]
+#print(ori_feature_dataframe.shape)
+#specAugmented_feature_dataframe = feature_dataframe_gen(feature_dir='input/mel_features/SpecAugmented_features/')
 
 
 X_train_ori, X_test_ori, y_train_ori, y_test_ori = train_test_split(ori_feature_dataframe.drop('emotions',1), ori_feature_dataframe.emotions, test_size = 0.20, shuffle = True, random_state = 42)
-X_train_spec, X_test_spec, y_train_spec, y_test_spec = train_test_split(specAugmented_feature_dataframe.drop('emotions',1), specAugmented_feature_dataframe.emotions, test_size = 0.20, shuffle = True, random_state = 42)
+#X_train_spec, X_test_spec, y_train_spec, y_test_spec = train_test_split(specAugmented_feature_dataframe.drop('emotions',1), specAugmented_feature_dataframe.emotions, test_size = 0.20, shuffle = True, random_state = 42)
 
-X_train = pd.concat([X_train_ori,X_train_spec])
-y_train = pd.concat([y_train_ori,y_train_spec])
+#X_train = pd.concat([X_train_ori,X_train_spec])
+#y_train = pd.concat([y_train_ori,y_train_spec])
+X_train = X_train_ori
+y_train = y_train_ori
 X_test = X_train_ori
 y_test = y_train_ori
 
 mean = np.mean(X_train, axis=0)
 std = np.std(X_train, axis=0)
-X_train = ((X_train - mean)/std).fillna(0)
-X_test = ((X_test - mean)/std).fillna(0)
+X_train = ((X_train - mean)/std)
+X_test = ((X_test - mean)/std)
 
-#train test split of WAV files
 
 
 X_train = np.array(X_train)
@@ -108,3 +112,4 @@ model.save(model_save_dir)
 model_json = model.to_json()
 with open(model_save_dir+'/' +"model_json.json", "w") as file:
     file.write(model_json)
+
