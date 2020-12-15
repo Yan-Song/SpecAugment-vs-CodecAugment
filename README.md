@@ -74,9 +74,44 @@ The reason behind going for these 2 datasets is, TESS is very cleaned and balanc
 ### Convolutional Neural Network
 ![Sequencial model for Speech Emotion Recognition](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/model.png)
 
+We also used Keras Tuner for hyper parameter optimization. The tuning summery is as below. 
+
+    Search space summary
+    Default search space size: 13
+    filters_1 (Int)
+    {'default': 256, 'conditions': [], 'min_value': 32, 'max_value': 512, 'step': 32, 'sampling': None}
+    kernel_size_1 (Int)
+    {'default': 8, 'conditions': [], 'min_value': 2, 'max_value': 10, 'step': 2, 'sampling': None}
+    filters_2 (Int)
+    {'default': 256, 'conditions': [], 'min_value': 32, 'max_value': 512, 'step': 32, 'sampling': None}
+    kernel_size_2 (Int)
+    {'default': 8, 'conditions': [], 'min_value': 2, 'max_value': 10, 'step': 2, 'sampling': None}
+    dropout_1 (Float)
+    {'default': 0.05, 'conditions': [], 'min_value': 0.0, 'max_value': 0.5, 'step': 0.05, 'sampling': None}
+    n_layers (Int)
+    {'default': None, 'conditions': [], 'min_value': 1, 'max_value': 5, 'step': 1, 'sampling': None}
+    filters_3_0 (Int)
+    {'default': 256, 'conditions': [], 'min_value': 32, 'max_value': 512, 'step': 32, 'sampling': None}
+    kernel_size_3_0 (Int)
+    {'default': 8, 'conditions': [], 'min_value': 2, 'max_value': 10, 'step': 2, 'sampling': None}
+    dropout_2 (Float)
+    {'default': 0.05, 'conditions': [], 'min_value': 0.0, 'max_value': 0.5, 'step': 0.05, 'sampling': None}
+    filters_4_0 (Int)
+    {'default': 256, 'conditions': [], 'min_value': 32, 'max_value': 512, 'step': 32, 'sampling': None}
+    kernel_size_4_0 (Int)
+    {'default': 8, 'conditions': [], 'min_value': 2, 'max_value': 10, 'step': 2, 'sampling': None}
+    learning_rate (Choice)
+    {'default': 0.01, 'conditions': [], 'values': [0.01, 0.001, 0.0001], 'ordered': True}
+    momentum (Choice)
+    {'default': 0.0, 'conditions': [], 'values': [0.0, 0.25, 0.5, 0.7, 0.9, 0.99], 'ordered': True}
+
+## Experiment Results
+### IEMOCAP results
+
 
 
 
   
+
 
 
