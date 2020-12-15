@@ -1,4 +1,5 @@
 
+
 # SpecAugment-vs-CodecAugment for Speech Emotion Recognition
 
 ## Introduction
@@ -22,7 +23,7 @@ Let's check some open source, Speech Emotion datasets.
 
 The main problem we saw here, is the lack of training data in each dataset. Maximum number of training data available are 7422 and with such a small number of dataset, it is very difficult to implement a deep learning model without overfitting and that's why, implementation of different data augmentation techniques are necessary. 
 
-### SpecAugment
+## SpecAugment
 In the absence of an adequate volume of training data, it is possible to increase the effective size of existing data through the process of [data augmentation](https://www.microsoft.com/en-us/research/wp-content/uploads/2003/08/icdar03.pdf), which has contributed to significantly improving the performance of deep networks in the domain of [image classification](https://ai.googleblog.com/2018/06/improving-deep-learning-performance.html). In the case of speech emotion recognition, augmentation traditionally involves deforming the audio waveform used for training in some fashion (e.g., by speeding it up or slowing it down), or adding background noise. This has the effect of making the dataset effectively larger, as multiple augmented versions of a single input is fed into the network over the course of training, and also helps the network become robust by forcing it to learn relevant features. However, existing conventional methods of augmenting audio input introduces additional computational cost and sometimes requires additional data.
 
 A recent paper from Google Brain, “[SpecAugment: A Simple Data Augmentation Method for Automatic Speech Recognition](https://arxiv.org/abs/1904.08779)”, thay took a new approach to augmenting audio data, treating it as a visual problem rather than an audio one. Instead of augmenting the input audio waveform as is traditionally done, SpecAugment applies an augmentation policy directly to the audio spectrogram (i.e., an image representation of the waveform). This method was simple, computationally cheap to apply, and does not require additional data. It is also surprisingly effective in improving the performance of ASR
@@ -38,10 +39,10 @@ From our experimental data,
 ![The log mel spectrogram is augmented by warping in the time direction, and masking (multiple) blocks of consecutive time steps (vertical masks) and mel frequency channels (horizontal masks).](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/specAugmented.png)
 
 
-### CodecAugment
+## CodecAugment
 
 In contrast to SpecAugment, we came up with another data augmentation technique, Codec Augmentation. 
-#### But why Audio Encoding ?
+#### But why use of Codec and Audio Encoding ?
 Audio encoding is used to expand the training data set. Audio encoding is typically used to reduce the data bandwidth for storage and especially for transmission. Audio is compressed to enable efficient storage and to simplify transmission. Compression can be lossless or lossy in audio encoding. It automatically removes certain information not needed to fulfill the purpose of the application used. For music transmission, the compression is optimized to remove certain parts of the original sound signal that go beyond the auditory resolution ability. Voice quality and intelligibility are of interest for voice data transmission. Losing information while compressing audio without drastically changing it is an essential aspect of the audio augmentation method at the data level. Such loss of data later affects feature extraction and enables data variation in the training set. Several studies investigated the impact of compression on spectral quality and acoustic features but without analyzing the possibility of using these altered features for data augmentation. Although there are many ways to change the acoustic information, we have focused on the bit rate and code type as parameters.
 
 For the codec type, we have chosen Opus, as it is an audio codec that can be of high quality and low delay with the capability of incorporating multiple channels. It supports several audio-frequency bandwidths and is suitable for various real-time audio signals, including speech and music also it is an open source and royalty free software. Furthermore, Opus achieves an outstanding quality of experience across multiple listening tests, especially in the higher bands.
@@ -54,5 +55,28 @@ We took one or two bitrates from each variations i.e. 8 Kbps, 16Kbps, 32 Kbps, 4
 Let's check out how Codec Augment works.   
 ![On the above image we have original wav file spectrogram and below image shows compressed audio file spectrogram at 8kbps with OPUS codec ](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/collage.png)
 
+## Experimental Setup
+### Datasets
+
+For experiment we choose 2 datasets.  
+* IEMOCAP (Interactive Emotional Dyadic Motion Capture)
+> [IEMOCAP](https://sail.usc.edu/iemocap/) has 12 hours of audio-visual data from 10 actors where the recordings follow dialogues between a male and a female actor in both scripted or improvised topics. After the audio-visual data has been collected it is divided into small utterances of length between 3 to 15 seconds which are then labelled by evaluators. Each utterance is evaluated by 3-4 assessors. The evaluation form contained 10 options (neutral, happiness, sadness, anger, surprise, fear, disgust frustration, excited, other). We consider only 4 of them anger, excitement (happiness), neutral and sadness so as to remain consistent with the prior research. Also to resolve the problem of unbalanced classes we, added happiness and excitement category into a single category. 
+
+>We performed experiment two times, 1st by taking a simple sequential model and considering all seasons and all actors and then, randomly splitting 80% of dataset as training data and rest 20% of dataset as testing data. 
+
+> On the other hand, we also performed the experiment by taking first 4 season and 8 different actors as a training dataset and last season 5 and actors 9 and 10 as in testing dataset. During this process, we also used Keras tuner as Hyperparameter Optimizer.
+
+* TESS  (Toronto emotional speech set)
+> [TESS](https://tspace.library.utoronto.ca/handle/1807/24493) is very cleaned dataset, having 2800 utterances, and 14 different classes namely, male and female 7 difference utterances. i.e. Happy, Sad, Excited, Fear, Frustration, Anger, and Disgust. We randomly took 80% of total dataset for training data and 20% as testing data. 
+
+The reason behind going for these 2 datasets is, TESS is very cleaned and balanced  and IEMOCAP is comparitively rough and very unbalanced, and we can get clear idea about data augmentation techniques. 
+
+### Convolutional Neural Network
+![Sequencial model for Speech Emotion Recognition](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/model.png)
+
+
+
+
+  
 
 
