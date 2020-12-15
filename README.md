@@ -129,7 +129,9 @@ The below results are with randomly choosing train test split and without use of
 
 
 ### TESS results
-For the experimental results in TESS, we considered Accuracy as our evaluation metrics. As dataset has equal number of data for each category. The results are as below. 
+For the experimental results in TESS, we considered Accuracy as our evaluation metrics. As dataset has equal number of data for each category. 
+The results are as below. 
+
 ![tess results](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/TESS%20Datasets%20accuracy%20comparison.png)
 
 ## Conclusion
