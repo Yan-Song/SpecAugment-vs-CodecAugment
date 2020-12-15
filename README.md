@@ -10,7 +10,7 @@ A set of 200 target words were spoken in the carrier phrase "Say the word _____'
 * RAVDESS (The Ryerson Audio-Visual Database of Emotional Speech and Song)
 The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS) contains 7356 files (total size: 24.8 GB). The database contains 24 professional actors (12 female, 12 male), vocalizing two lexically-matched statements in a neutral North American accent. Speech includes calm, happy, sad, angry, fearful, surprise, and disgust expressions, and song contains calm, happy, sad, angry, and fearful emotions.
 
-*CREMA -d (crema_d)
+* CREMA -d (crema_d)
 This data set consists of facial and vocal emotional expressions in sentences spoken in a range of basic emotional states (happy, sad, anger, fear, disgust, and neutral). 7,442 clips of 91 actors with diverse ethnic backgrounds were collected.
 
 * SAVEE (Surrey Audio-Visual Expressed Emotion)
