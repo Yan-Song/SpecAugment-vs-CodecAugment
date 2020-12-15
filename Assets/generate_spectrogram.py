@@ -2,7 +2,8 @@ import librosa
 import numpy as np
 import librosa.display
 import scipy
-import scipy.io.wavfile as sf 
+import scipy.io.wavfile as sf
+from SpecAugment import spec_augment_pytorch
 #X, sample_rate = librosa.load('/home/mds-student/Downloads/OAF_youth_happy.wav', res_type='kaiser_fast', sr = 22050*2, offset = 0.5)
 #X1, sample_rate = librosa.load('Assets/Ses01F_impro05_F015.opus', res_type='kaiser_fast', sr = 22050*2, offset = 0.5)
 
@@ -20,7 +21,8 @@ import scipy.io.wavfile as sf
 X, sample_rate = librosa.load('Assets/Ses01F_impro05_F015.wav', res_type='kaiser_fast', sr = 22050*2, offset = 0.5)
 import matplotlib.pyplot as plt
 S1 = librosa.feature.melspectrogram(y = X, sr = 44100, n_mels=256,hop_length=128,fmax=8000)
-S_21 = librosa.power_to_db(S1, ref=np.max)
+warped_masked_spectrogram = spec_augment_pytorch.spec_augment(mel_spectrogram=S1)
+S_21 = librosa.power_to_db(warped_masked_spectrogram, ref=np.max)
 plt.figure(figsize=(12,4))
 librosa.display.specshow(S_21, sr=44100, x_axis='time', y_axis='mel')
 plt.show()
