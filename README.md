@@ -126,3 +126,11 @@ The below results are with randomly choosing train test split and without use of
 
 ![SS1](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/ss1.png)
 ![SS2](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/ss2.png)
+
+
+### TESS results
+For the experimental results in TESS, we considered Accuracy as our evaluation metrics. As dataset has equal number of data for each category. The results are as below. 
+![tess results](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/TESS%20Datasets%20accuracy%20comparison.png)
+
+## Conclusion
+It can be seen from confusion metrics and other evaluation metrics values, we can say that, the best results can be get with Codec Augmentation if we augment original audio file at 32Kbps or 64Kbps. At this bitrates, the experimental results are even better than SpecAugment. We are experimenting more and taking more results, but these are initial results and they seem promising as of now. 
