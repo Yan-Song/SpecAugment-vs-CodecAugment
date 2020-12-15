@@ -39,7 +39,7 @@ In the 2nd picture, the log mel spectrogram is augmented by warping in the time 
 ![The log mel spectrogram is augmented by warping in the time direction, and masking (multiple) blocks of consecutive time steps (vertical masks) and mel frequency channels (horizontal masks).](https://4.bp.blogspot.com/-joiPxVcyU-c/XLo-bKDUSvI/AAAAAAAAEEg/NhqAZtH7hxILt5et82zIrSKvPq5DHFLCgCEwYBhgL/s640/image6.png) 
 
 From our experimental data,
-![The log mel spectrogram is augmented by warping in the time direction, and masking (multiple) blocks of consecutive time steps (vertical masks) and mel frequency channels (horizontal masks).](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/specAugmented.png)
+![The log mel spectrogram is augmented by warping in the time direction, and masking (multiple) blocks of consecutive time steps (vertical masks) and mel frequency channels (horizontal masks).](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/gh-pages/Assets/specAugmented.png)
 
 
 ## Codec Augment
@@ -56,7 +56,7 @@ For bitrates, OPUS codec gives us 3 variations.
 
 We took one or two bitrates from each variations i.e. 8 Kbps, 16Kbps, 32 Kbps, 48 Kbps, 64 Kbps and 128 Kbps. 
 Let's check out how Codec Augment works.   
-![On the above image we have original wav file spectrogram and below image shows compressed audio file spectrogram at 8kbps with OPUS codec ](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/collage.png)
+![On the above image we have original wav file spectrogram and below image shows compressed audio file spectrogram at 8kbps with OPUS codec ](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/gh-pages/Assets/collage.png)
 
 ## Experimental Setup
 ### Datasets
@@ -84,7 +84,7 @@ We have  X = training data, Y = testing data, Z = total data (whole dataset)
 > In Codec Augmentation we took 6 different bitrates and take experimental results, 6 times for each bitrate i.e. 8,16,32,48,64 and 128kbps. 
 
 ### Convolutional Neural Network
-![Sequencial model for Speech Emotion Recognition](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/model.png)
+![Sequencial model for Speech Emotion Recognition](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/gh-pages/Assets/model.png)
 
 We also used Keras Tuner for hyper parameter optimization. The tuning summery is as below. 
 
@@ -121,18 +121,18 @@ We also used Keras Tuner for hyper parameter optimization. The tuning summery is
 ### IEMOCAP results
 For the experimental results in IEMOCAP, we considered Accuracy, Precision, Recall, F1 score and Confusion Metrix as our evaluation metrics. 
 The below results are with randomly choosing train test split and without use of HPO. 
-![Confusion_metrix_1](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/Confusion_metix.png)
-![Confusion metrix 2](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/Confusion_metix_1.png) 
+![Confusion_metrix_1](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/gh-pages/Assets/Confusion_metix.png)
+![Confusion metrix 2](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/gh-pages/Assets/Confusion_metix_1.png) 
 
-![SS1](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/ss1.png)
-![SS2](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/ss2.png)
+![SS1](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/gh-pages/Assets/ss1.png)
+![SS2](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/gh-pages/Assets/ss2.png)
 
 
 ### TESS results
 For the experimental results in TESS, we considered Accuracy as our evaluation metrics. As dataset has equal number of data for each category. 
 The results are as below. 
 
-![tess results](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/TESS%20Datasets%20accuracy%20comparison.png)
+![tess results](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/gh-pages/Assets/TESS%20Datasets%20accuracy%20comparison.png)
 
 ## Conclusion
 It can be seen from confusion metrics and other evaluation metrics values, we can say that, the best results can be get with Codec Augmentation if we augment original audio file at 32Kbps or 64Kbps. At this bitrates, the experimental results are even better than SpecAugment. We are experimenting more and taking more results, but these are initial results and they seem promising as of now. 
