@@ -34,6 +34,10 @@ First Picture is a typical representation of Audio file and the second picture i
 ![First Picture is a typical representation of Audio file and the second picture is a log mel spectrogram of given audio](https://3.bp.blogspot.com/-ac9sLynWUUQ/XLo-Z4TYKII/AAAAAAAAEEU/UaOV-sDGlPw6dIYo_aHwJf0rKYg1IUehgCEwYBhgL/s640/image3.png)
 ![The log mel spectrogram is augmented by warping in the time direction, and masking (multiple) blocks of consecutive time steps (vertical masks) and mel frequency channels (horizontal masks).](https://4.bp.blogspot.com/-joiPxVcyU-c/XLo-bKDUSvI/AAAAAAAAEEg/NhqAZtH7hxILt5et82zIrSKvPq5DHFLCgCEwYBhgL/s640/image6.png) 
 
+From our experimental data,
+![The log mel spectrogram is augmented by warping in the time direction, and masking (multiple) blocks of consecutive time steps (vertical masks) and mel frequency channels (horizontal masks).](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/specAugmented.png)
+
+
 ### CodecAugment
 
 In contrast to SpecAugment, we came up with another data augmentation technique, Codec Augmentation. 
