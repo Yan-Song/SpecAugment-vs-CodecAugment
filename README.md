@@ -124,6 +124,5 @@ The below results are with randomly choosing train test split and without use of
 ![Confusion_metrix_1](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/Confusion_metix.png)
 ![Confusion metrix 2](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/Confusion_metix_1.png) 
 
-Let's check other metrics, 
 ![SS1](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/ss1.png)
 ![SS2](https://github.com/Aditya3107/SpecAugment-vs-CodecAugment/blob/master/Assets/ss2.png)
